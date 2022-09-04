@@ -6,7 +6,7 @@ import rs.radosacimovic.statsservice.model.Product;
 
 import java.util.List;
 
-@FeignClient("product-service")
+@FeignClient(name="product-service", url="http://product-service:8082")
 public interface ProductClient {
     @GetMapping(value = "/api/products")
     List<Product> getProducts();

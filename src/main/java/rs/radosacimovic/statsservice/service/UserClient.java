@@ -6,7 +6,7 @@ import rs.radosacimovic.statsservice.model.User;
 
 import java.util.List;
 
-@FeignClient("user-service")
+@FeignClient(name="user-service", url="http://user-service:8081")
 public interface UserClient {
     @GetMapping(value = "/api/users?role=SELLER")
     List<User> getSellers();
