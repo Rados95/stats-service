@@ -17,5 +17,7 @@ ENV APPDIR /usr/local/app
 RUN mkdir $APPDIR
 WORKDIR $APPDIR
 COPY --from=stats-builder $APPDIR/target/stats-service.jar $APPDIR
+RUN useradd -ms /bin/bash containermanager
+USER containermanager
 EXPOSE 8083
 CMD ["java", "-jar", "stats-service.jar"]
